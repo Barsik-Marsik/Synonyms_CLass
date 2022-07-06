@@ -33,3 +33,4 @@
 
 # IDE configuration files
 .metadata/
+/Debug/
