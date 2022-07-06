@@ -52,23 +52,14 @@ void TestAddingSynonymsIncreasesTheirCount() {
 void TestAreSynonyms() {
     Synonyms synonyms;
 
-    assert(synonyms.AreSynonyms("mountain"s, "hill"s) == false);
+    assert(!synonyms.AreSynonyms("mountain"s, "hill"s));
 
     synonyms.Add("mountain"s, "hill"s);
     synonyms.Add("mountain"s, "peak"s);
-    assert(synonyms.AreSynonyms("mountain"s, "hill"s) == true);
-    assert(synonyms.AreSynonyms("mountain"s, "peak"s) == true);
-    assert(synonyms.AreSynonyms("hill"s, "mountain"s) == true);
-    assert(synonyms.AreSynonyms("peak"s, "mountain"s) == true);
-    assert(synonyms.AreSynonyms("hill"s, "peak"s) == false);
-    assert(synonyms.AreSynonyms("peak"s, "hill"s) == false);
-
-    assert(synonyms.AreSynonyms("mountain"s, "lake"s) == false);
-    assert(synonyms.AreSynonyms("hill"s, "lake"s) == false);
-
-    assert(synonyms.AreSynonyms("lake"s, "mountain"s) == false);
-    assert(synonyms.AreSynonyms("lake"s, "peak"s) == false);
-
+    assert(synonyms.AreSynonyms("mountain"s, "hill"s));
+    assert(synonyms.AreSynonyms("hill"s, "mountain"s));
+    assert(!synonyms.AreSynonyms("hill"s, "peak"s));
+    assert(!synonyms.AreSynonyms("peak"s, "hill"s));
 }
 
 void TestSynonyms() {
